@@ -2,7 +2,7 @@ package steps;
 
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 
 import java.time.Duration;
@@ -57,6 +57,6 @@ public class CreateBug {
     @Step("Проверка статуса бага")
     public static void checkBug(){
         String statusBug = status.getText().toLowerCase();
-        Assert.assertEquals(statusBug,"выполнено");
+        Assertions.assertEquals(statusBug,"выполнено");
     }
 }

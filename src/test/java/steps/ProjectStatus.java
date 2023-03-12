@@ -1,7 +1,7 @@
 package steps;
 
 import io.qameta.allure.Step;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.Keys;
 
 import static pageElements.CreatePage.*;
@@ -17,12 +17,12 @@ public class ProjectStatus {
     @Step("Парсинг версии и ее проверка")
     public static void collectionVersion(){
         String vers = versions.getText();
-        Assert.assertEquals(vers,"Version 2.0");
+        Assertions.assertEquals(vers,"Version 2.0");
     }
     @Step("Парсинг статуса и его проверка")
     public static void collectionStatus(){
         String inProgress = status.getText().toLowerCase();
-        Assert.assertEquals(inProgress,"сделать");
+        Assertions.assertEquals(inProgress,"сделать");
     }
 
 }

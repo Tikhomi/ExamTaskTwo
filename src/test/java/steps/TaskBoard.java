@@ -1,7 +1,7 @@
 package steps;
 
 import io.qameta.allure.Step;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +19,7 @@ public class TaskBoard {
     public static void tasksBoard(){
         panelTask.click();
     }
+
     @Step("Проверка соотвествия кол-ва задач")
     public static void regular(){
         String howMany = quantity.getText();
@@ -32,6 +33,6 @@ public class TaskBoard {
         matchers.find();
         String a1 = matchers.group();
         String a2 = matcher.group();
-        Assert.assertEquals(a1,a2);
+        Assertions.assertEquals(a1,a2);
     }
 }
