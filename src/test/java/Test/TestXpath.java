@@ -1,14 +1,12 @@
 package Test;
 
 import WebHooks.WebHook;
+import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Epic;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
-import static pageElements.MainPage.*;
-import static pageElements.SelenidePage.*;
 import static steps.CreateBug.*;
 import static steps.Login.*;
 import static steps.ProjectStatus.*;
@@ -18,10 +16,10 @@ import static steps.TaskBoard.*;
 public class TestXpath extends WebHook {
     @DisplayName("Проверка количества")
     @Test
-    public void kolichestvo() {
-        url(baseURL);
-        inputLog(login);
-        inputPass(password);
+    public void quantity(){
+        Selenide.open(Utils.Util.getConfig("url"));
+        inputLog();
+        inputPass();
         inputClick();
         projects();
         regular();
@@ -29,23 +27,22 @@ public class TestXpath extends WebHook {
 
     @DisplayName("Проверка статуса и версии")
     @Test
-    public void statusAndVersion (){//получение статуса и версии
-        url(baseURL);
-        inputLog(login);
-        inputPass(password);
+    public void statusAndVersion (){
+        Selenide.open(Utils.Util.getConfig("url"));
+        inputLog();
+        inputPass();
         inputClick();
-        seleniumSearch(text);
+        seleniumSearch();
         collectionVersion();
-        sleep(1000);
         collectionStatus();
     }
 
     @DisplayName("Создание бага")
     @Test
     public void createBugAndStatus(){
-        url(baseURL);
-        inputLog(login);
-        inputPass(password);
+        Selenide.open(Utils.Util.getConfig("url"));
+        inputLog();
+        inputPass();
         inputClick();
         clickCreate();
         completionTema();
@@ -54,5 +51,6 @@ public class TestXpath extends WebHook {
         creatingTheDescribedBug();
         createDoneTest();
         businessProgress();
+        checkBug();
     }
 }

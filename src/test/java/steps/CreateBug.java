@@ -3,7 +3,6 @@ package steps;
 import com.codeborne.selenide.Condition;
 import io.qameta.allure.Step;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.Keys;
 
 import java.time.Duration;
 
@@ -44,10 +43,9 @@ public class CreateBug {
 
     @Step("Переход на раздел содержащий созданный баг")
     public static void createDoneTest(){
-        inputText.click();
-        inputText.setValue("CreateBug");
-        inputText.sendKeys(Keys.ENTER);
+        message.click();
     }
+
     @Step("Перевод бага в статус \"Выполнено\"")
     public static void businessProgress(){
         business.click();
@@ -57,6 +55,6 @@ public class CreateBug {
     @Step("Проверка статуса бага")
     public static void checkBug(){
         String statusBug = status.getText().toLowerCase();
-        Assertions.assertEquals(statusBug,"выполнено");
+        Assertions.assertEquals(statusBug,"готово");
     }
 }

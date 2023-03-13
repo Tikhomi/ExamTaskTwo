@@ -9,9 +9,9 @@ import static pageElements.SelenidePage.status;
 import static pageElements.SelenidePage.versions;
 
 public class ProjectStatus {
-    public static void seleniumSearch(String input){
+    public static void seleniumSearch(){
         inputText.click();
-        inputText.setValue(input);
+        inputText.setValue(Utils.Util.getConfig("text"));
         inputText.sendKeys(Keys.ENTER);
     }
     @Step("Парсинг версии и ее проверка")
